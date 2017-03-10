@@ -1,0 +1,3 @@
+/home/luocn99/github/cquic/build/CMakeFiles/edit_cache.dir
+/home/luocn99/github/cquic/build/CMakeFiles/rebuild_cache.dir
+/home/luocn99/github/cquic/build/CMakeFiles/cquic_server.dir

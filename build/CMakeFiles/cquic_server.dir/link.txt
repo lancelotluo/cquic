@@ -1,0 +1,1 @@
+/usr/bin/c++     -g -Wall -fpic -std=gnu++11   CMakeFiles/cquic_server.dir/src/main.cc.o  -o cquic_server  -L/home/luocn99/github/cquic/lib -rdynamic -lquic -lssl -lcrypto -lpthread -Wl,-rpath,/home/luocn99/github/cquic/lib 
