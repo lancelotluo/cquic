@@ -1,0 +1,29 @@
+--- src/base/memory/shared_memory_mac.cc
++++ src/base/memory/shared_memory_mac.cc
+@@ -12,10 +12,14 @@
+ #include "base/mac/foundation_util.h"
+ #include "base/mac/mac_util.h"
+ #include "base/mac/scoped_mach_vm.h"
++#if 0
+ #include "base/metrics/field_trial.h"
++#endif
+ #include "base/metrics/histogram_macros.h"
++#if 0
+ #include "base/process/process_metrics.h"
+ #include "base/profiler/scoped_tracker.h"
++#endif
+ #include "base/scoped_generic.h"
+ #include "base/strings/utf_string_conversions.h"
+ #include "build/build_config.h"
+@@ -132,9 +136,11 @@ bool SharedMemory::GetSizeFromSharedMemoryHandle(
+ bool SharedMemory::Create(const SharedMemoryCreateOptions& options) {
+   // TODO(erikchen): Remove ScopedTracker below once http://crbug.com/466437
+   // is fixed.
++#if 0
+   tracked_objects::ScopedTracker tracking_profile1(
+       FROM_HERE_WITH_EXPLICIT_FUNCTION(
+           "466437 SharedMemory::Create::Start"));
++#endif
+   DCHECK(!shm_.IsValid());
+   if (options.size == 0) return false;
+ 

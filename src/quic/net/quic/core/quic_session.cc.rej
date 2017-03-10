@@ -1,0 +1,12 @@
+--- src/net/quic/core/quic_session.cc
++++ src/net/quic/core/quic_session.cc
+@@ -12,7 +12,9 @@
+ #include "net/quic/core/quic_connection.h"
+ #include "net/quic/core/quic_flags.h"
+ #include "net/quic/core/quic_flow_controller.h"
++#if 0
+ #include "net/ssl/ssl_info.h"
++#endif
+ 
+ using base::IntToString;
+ using base::StringPiece;
