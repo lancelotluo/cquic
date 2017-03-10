@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named quic_simple_server
+
+# Build rule for target.
+quic_simple_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quic_simple_server
+.PHONY : quic_simple_server
+
+# fast build rule for target.
+quic_simple_server/fast:
+	$(MAKE) -f CMakeFiles/quic_simple_server.dir/build.make CMakeFiles/quic_simple_server.dir/build
+.PHONY : quic_simple_server/fast
+
+#=============================================================================
 # Target rules for targets named cquic_server
 
 # Build rule for target.
@@ -122,6 +135,19 @@ cquic_server: cmake_check_build_system
 cquic_server/fast:
 	$(MAKE) -f CMakeFiles/cquic_server.dir/build.make CMakeFiles/cquic_server.dir/build
 .PHONY : cquic_server/fast
+
+#=============================================================================
+# Target rules for targets named protobuf
+
+# Build rule for target.
+protobuf: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 protobuf
+.PHONY : protobuf
+
+# fast build rule for target.
+protobuf/fast:
+	$(MAKE) -f lib/protobuf/CMakeFiles/protobuf.dir/build.make lib/protobuf/CMakeFiles/protobuf.dir/build
+.PHONY : protobuf/fast
 
 src/main.o: src/main.cc.o
 
@@ -150,6 +176,33 @@ src/main.cc.s:
 	$(MAKE) -f CMakeFiles/cquic_server.dir/build.make CMakeFiles/cquic_server.dir/src/main.cc.s
 .PHONY : src/main.cc.s
 
+src/proto_quic_tool/net/tools/quic/quic_server_bin.o: src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.o
+
+.PHONY : src/proto_quic_tool/net/tools/quic/quic_server_bin.o
+
+# target to build an object file
+src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.o:
+	$(MAKE) -f CMakeFiles/quic_simple_server.dir/build.make CMakeFiles/quic_simple_server.dir/src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.o
+.PHONY : src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.o
+
+src/proto_quic_tool/net/tools/quic/quic_server_bin.i: src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.i
+
+.PHONY : src/proto_quic_tool/net/tools/quic/quic_server_bin.i
+
+# target to preprocess a source file
+src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.i:
+	$(MAKE) -f CMakeFiles/quic_simple_server.dir/build.make CMakeFiles/quic_simple_server.dir/src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.i
+.PHONY : src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.i
+
+src/proto_quic_tool/net/tools/quic/quic_server_bin.s: src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.s
+
+.PHONY : src/proto_quic_tool/net/tools/quic/quic_server_bin.s
+
+# target to generate assembly for a file
+src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.s:
+	$(MAKE) -f CMakeFiles/quic_simple_server.dir/build.make CMakeFiles/quic_simple_server.dir/src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.s
+.PHONY : src/proto_quic_tool/net/tools/quic/quic_server_bin.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -158,10 +211,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... quic_simple_server"
 	@echo "... cquic_server"
+	@echo "... protobuf"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/proto_quic_tool/net/tools/quic/quic_server_bin.o"
+	@echo "... src/proto_quic_tool/net/tools/quic/quic_server_bin.i"
+	@echo "... src/proto_quic_tool/net/tools/quic/quic_server_bin.s"
 .PHONY : help
 
 

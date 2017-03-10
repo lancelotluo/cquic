@@ -1,3 +1,7 @@
 /home/luocn99/github/cquic/build/CMakeFiles/edit_cache.dir
 /home/luocn99/github/cquic/build/CMakeFiles/rebuild_cache.dir
+/home/luocn99/github/cquic/build/CMakeFiles/quic_simple_server.dir
 /home/luocn99/github/cquic/build/CMakeFiles/cquic_server.dir
+/home/luocn99/github/cquic/build/lib/protobuf/CMakeFiles/edit_cache.dir
+/home/luocn99/github/cquic/build/lib/protobuf/CMakeFiles/rebuild_cache.dir
+/home/luocn99/github/cquic/build/lib/protobuf/CMakeFiles/protobuf.dir

@@ -5,7 +5,7 @@ set (COMMON_C_FLAGS "${COMMON_C_FLAGS} -g -Wall -fpic")
 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMMON_C_FLAGS}")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMMON_C_FLAGS} -std=gnu++11")
 
-include_directories(src src/quic src/proto_quic_tools)
+include_directories(src src/proto-quic src/proto_quic_tool)
 
 link_directories(lib)
 
@@ -62,6 +62,7 @@ set (
 	proto_quic_tool/stateless_rejector.cc
 	proto_quic_tool/stateless_rejector_test.cc
 	proto_quic_tool/synchronous_host_resolver.cc
+	proto-quic-modify/proof_source_goquic.cc
 	limited_mtu_test_writer.cc
 	mock_epoll_server.cc
 	mock_quic_session_visitor.cc
@@ -82,4 +83,13 @@ add_executable(
 	src/main.cc
 )
 
+add_executable(
+	quic_simple_server
+
+	src/proto_quic_tool/net/tools/quic/quic_server_bin.cc
+)
+
 target_link_libraries(cquic_server quic ssl crypto pthread)
+target_link_libraries(quic_simple_server quic ssl crypto pthread)
+
+add_subdirectory(lib/protobuf)
