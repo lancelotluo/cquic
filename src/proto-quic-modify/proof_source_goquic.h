@@ -7,7 +7,7 @@
 #include "net/base/host_port_pair.h"
 
 namespace net {
-
+typedef int GoPtr;
 class IPAddress;
 
 // This should be thread-safe, because multiple dispatcher may concurrently call
@@ -23,6 +23,7 @@ class ProofSourceGoquic : public ProofSource {
   void BuildCertChain();
 
   // ProofSource interface
+/*
   bool GetProof(const IPAddress& server_ip,
                 const std::string& hostname,
                 const std::string& server_config,
@@ -31,12 +32,13 @@ class ProofSourceGoquic : public ProofSource {
                 scoped_refptr<ProofSource::Chain>* out_chain,
                 std::string* out_signature,
                 std::string* out_leaf_cert_sct) override;
-
-  void GetProof(const IPAddress& server_ip,
+*/
+  void GetProof(const QuicSocketAddress& server_address,
                 const std::string& hostname,
                 const std::string& server_config,
                 QuicVersion quic_version,
                 base::StringPiece chlo_hash,
+                const QuicTagVector& connection_options,
                 std::unique_ptr<Callback> callback) override;
 
  private:

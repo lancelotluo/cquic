@@ -5,7 +5,7 @@ set (COMMON_C_FLAGS "${COMMON_C_FLAGS} -g -Wall -fpic")
 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMMON_C_FLAGS}")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMMON_C_FLAGS} -std=gnu++11")
 
-include_directories(src src/proto-quic src/proto_quic_tool)
+include_directories(src src/proto-quic src/proto_quic_tool src/proto-quic/third_party/protobuf/src/)
 
 link_directories(lib)
 

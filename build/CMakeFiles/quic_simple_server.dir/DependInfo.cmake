@@ -13,6 +13,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../src/proto-quic"
   "../src/proto_quic_tool"
+  "../src/proto-quic/third_party/protobuf/src"
   )
 
 # Targets to which this target links.

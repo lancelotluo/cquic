@@ -6,5 +6,5 @@ CXX_FLAGS =   -g -Wall -fpic -std=gnu++11 -pthread -DHAVE_PTHREAD
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/luocn99/github/cquic/src -I/home/luocn99/github/cquic/src/proto-quic -I/home/luocn99/github/cquic/src/proto_quic_tool -I/home/luocn99/github/cquic/lib/protobuf/../src/third_party/protobuf/src -I/home/luocn99/github/cquic/lib/protobuf/../src/third_party/protobuf 
+CXX_INCLUDES = -I/home/luocn99/github/cquic/src -I/home/luocn99/github/cquic/src/proto-quic -I/home/luocn99/github/cquic/src/proto_quic_tool -I/home/luocn99/github/cquic/src/proto-quic/third_party/protobuf/src -I/home/luocn99/github/cquic/lib/protobuf/../src/third_party/protobuf/src -I/home/luocn99/github/cquic/lib/protobuf/../src/third_party/protobuf 
 
