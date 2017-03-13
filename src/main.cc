@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include <iostream>
 
 #include "base/at_exit.h"
@@ -7,12 +5,21 @@
 #include "base/logging.h"
 #include "base/run_loop.h"
 #include "base/strings/string_number_conversions.h"
-#include "net/base/ip_address.h"
-#include "net/base/ip_endpoint.h"
+#include "net/quic/chromium/crypto/proof_source_chromium.h"
 #include "net/quic/core/quic_packets.h"
-#include "net/quic/core/quic_config.h"
+#include "net/quic/platform/api/quic_socket_address.h"
+#include "net/tools/quic/quic_http_response_cache.h"
+#include "net/tools/quic/quic_server.h"
 
 int32_t FLAGS_port = 6121;
+std::unique_ptr<net::ProofSource> CreateProofSource(
+			    const base::FilePath& cert_path,
+				    const base::FilePath& key_path) {
+	  std::unique_ptr<net::ProofSourceChromium> proof_source(
+				        new net::ProofSourceChromium());
+	    CHECK(proof_source->Initialize(cert_path, key_path, base::FilePath()));
+		  return std::move(proof_source);
+}
 
 
 int main(int argc, char* argv[]) {
@@ -40,7 +47,9 @@ int main(int argc, char* argv[]) {
 
 
   net::QuicConfig config;
-  /*
+  net::QuicHttpResponseCache response_cache;
+
+  line->GetSwitchValueASCII("quic_response_cache_dir");
   net::QuicServer server(
       CreateProofSource(line->GetSwitchValuePath("certificate_file"),
                         line->GetSwitchValuePath("key_file")),
@@ -56,6 +65,5 @@ int main(int argc, char* argv[]) {
   while (1) {
     server.WaitForEvents();
   }
-*/
 	printf("hello quic\n");
 }

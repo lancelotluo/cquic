@@ -189,8 +189,6 @@
 #define IEEE_8087
 #define NO_HEX_FP
 
-#include <cstdint>
-#include <limits.h>
 #ifndef Long
 #if __LP64__
 #define Long int

@@ -15,9 +15,7 @@
 #include "base/files/memory_mapped_file.h"
 #include "base/logging.h"
 #include "base/memory/ptr_util.h"
-#if 1
 #include "base/metrics/field_trial.h"
-#endif
 #include "base/metrics/histogram_macros.h"
 #include "base/pending_task.h"
 #include "base/pickle.h"

@@ -8,11 +8,9 @@
 
 #include "base/atomicops.h"
 #include "base/files/file_path.h"
-#if 0
 #include "base/files/file_util.h"
 #include "base/files/important_file_writer.h"
 #include "base/files/memory_mapped_file.h"
-#endif
 #include "base/lazy_instance.h"
 #include "base/logging.h"
 #include "base/memory/ptr_util.h"
@@ -714,7 +712,6 @@ void GlobalHistogramAllocator::CreateWithLocalMemory(
       MakeUnique<LocalPersistentMemoryAllocator>(size, id, name))));
 }
 
-#if 0
 #if !defined(OS_NACL)
 // static
 bool GlobalHistogramAllocator::CreateWithFile(
@@ -821,7 +818,6 @@ void GlobalHistogramAllocator::CreateWithSharedMemoryHandle(
       new GlobalHistogramAllocator(MakeUnique<SharedPersistentMemoryAllocator>(
           std::move(shm), 0, StringPiece(), /*readonly=*/false))));
 }
-#endif
 
 // static
 void GlobalHistogramAllocator::Set(
@@ -884,7 +880,6 @@ const FilePath& GlobalHistogramAllocator::GetPersistentLocation() const {
 }
 
 bool GlobalHistogramAllocator::WriteToPersistentLocation() {
-#if 0
 #if defined(OS_NACL)
   // NACL doesn't support file operations, including ImportantFileWriter.
   NOTREACHED();
@@ -906,10 +901,6 @@ bool GlobalHistogramAllocator::WriteToPersistentLocation() {
   }
 
   return true;
-#endif
-#else
-  // libquic does not support this
-  return false;
 #endif
 }
 

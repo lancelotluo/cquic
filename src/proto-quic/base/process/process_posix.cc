@@ -17,10 +17,6 @@
 #include "base/third_party/dynamic_annotations/dynamic_annotations.h"
 #include "build/build_config.h"
 
-#if defined(OS_FREEBSD)
-#include <signal.h>
-#endif
-
 #if defined(OS_MACOSX)
 #include <sys/event.h>
 #endif
@@ -314,13 +310,11 @@ bool Process::Terminate(int exit_code, bool wait) const {
   if (result && wait) {
     int tries = 60;
 
-#if 0
     if (RunningOnValgrind()) {
       // Wait for some extra time when running under Valgrind since the child
       // processes may take some time doing leak checking.
       tries *= 2;
     }
-#endif
 
     unsigned sleep_ms = 4;
 

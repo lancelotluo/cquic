@@ -11,9 +11,7 @@
 #include "base/atomicops.h"
 #include "base/base_export.h"
 #include "base/feature_list.h"
-#if 0
 #include "base/memory/shared_memory.h"
-#endif
 #include "base/metrics/histogram_base.h"
 #include "base/metrics/persistent_memory_allocator.h"
 #include "base/strings/string_piece.h"
@@ -433,7 +431,6 @@ class BASE_EXPORT GlobalHistogramAllocator
                                  FilePath* out_active_path);
 #endif
 
-#if 0
   // Create a global allocator using a block of shared |memory| of the
   // specified |size|. The allocator takes ownership of the shared memory
   // and releases it upon destruction, though the memory will continue to
@@ -449,7 +446,6 @@ class BASE_EXPORT GlobalHistogramAllocator
   // continue to live if other processes have access to it.
   static void CreateWithSharedMemoryHandle(const SharedMemoryHandle& handle,
                                            size_t size);
-#endif
 
   // Sets a GlobalHistogramAllocator for globally storing histograms in
   // a space that can be persisted or shared between processes. There is only

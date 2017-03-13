@@ -5,9 +5,7 @@
 #ifndef BASE_SEQUENCE_CHECKER_H_
 #define BASE_SEQUENCE_CHECKER_H_
 
-#if 0
 #include "base/sequence_checker_impl.h"
-#endif
 
 namespace base {
 
@@ -41,7 +39,7 @@ class SequenceCheckerDoNothing {
 // }
 //
 // In Release mode, CalledOnValidSequence() will always return true.
-#if DCHECK_IS_ON() && 0
+#if DCHECK_IS_ON()
 class SequenceChecker : public SequenceCheckerImpl {
 };
 #else

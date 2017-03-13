@@ -7,9 +7,7 @@
 #include "base/base_switches.h"
 #include "base/command_line.h"
 #include "base/lazy_instance.h"
-#if 0
 #include "base/metrics/field_trial.h"
-#endif
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/string_util.h"
 #include "base/sys_info_internal.h"
@@ -37,7 +35,6 @@ static LazyInstance<
   internal::LazySysInfoValue<bool, DetectLowEndDevice> >::Leaky
   g_lazy_low_end_device = LAZY_INSTANCE_INITIALIZER;
 
-#if 0
 // static
 bool SysInfo::IsLowEndDevice() {
   const std::string group_name =
@@ -50,7 +47,6 @@ bool SysInfo::IsLowEndDevice() {
 
   return g_lazy_low_end_device.Get().value();
 }
-#endif
 #endif
 
 #if (!defined(OS_MACOSX) || defined(OS_IOS)) && !defined(OS_ANDROID)

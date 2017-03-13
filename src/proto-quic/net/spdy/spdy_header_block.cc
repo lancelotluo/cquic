@@ -334,7 +334,6 @@ SpdyHeaderBlock::Storage* SpdyHeaderBlock::GetStorage() {
   return storage_.get();
 }
 
-#if 0
 std::unique_ptr<base::Value> SpdyHeaderBlockNetLogCallback(
     const SpdyHeaderBlock* headers,
     NetLogCaptureMode capture_mode) {
@@ -350,7 +349,6 @@ std::unique_ptr<base::Value> SpdyHeaderBlockNetLogCallback(
   dict->Set("headers", headers_dict);
   return std::move(dict);
 }
-#endif
 
 bool SpdyHeaderBlockFromNetLogParam(
     const base::Value* event_param,
